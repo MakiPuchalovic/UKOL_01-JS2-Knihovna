@@ -61,8 +61,8 @@ export default class Library {
           break;
         }
       }
-    }
-  }
+		}
+	}
 
 	finishCurrentBook() {
 		if (this.currentBook !== null) {
