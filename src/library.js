@@ -35,14 +35,16 @@ export default class Library {
       if (this.nextBook === null) {
         this.nextBook = book;
       }
-    }
+		}
+		book.renderHTML();
   }
 
   /* výpis všech knih v knihovně */
   listAllBooks() {
     console.table(this.bookList);
     console.log(this.currentBook);
-    console.log(this.nextBook);
+		console.log(this.nextBook);
+		book.renderHTML();
   }
 
   /* začít číst další knihu */
