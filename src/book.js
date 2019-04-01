@@ -26,9 +26,14 @@ export default class Book {
     console.log(`Super, přečetl jsi knihu ${this.title}.`);
   }
 
-	renderHTML() {
+	renderHTML(current) {
 		let profil = document.querySelector('#booklist');
+		let status = ``;
 		if (this.isRead === true) {
+			status = `<div class="book__badge book__badge--read">Přečteno</div>`;
+		} else if (current) {
+			status = `<div class="book__badge book__badge--current">Právě čtu</div>`;
+		}
 		profil.innerHTML += `
 			<div class="book">
 			<div class="book__image">
@@ -38,21 +43,8 @@ export default class Book {
 				<h3 class="book__title">${this.title}</h3>
 				<p class="book__meta">${this.author}, ${this.year}</p>
 			</div>
-		</div>
-		<div class="book__badge book__badge--read">Přečteno</div>
-		`;
-		} else {
-			profil.innerHTML += `
-			<div class="book">
-			<div class="book__image">
-				<img src="images/${this.image}" alt="Obálka ${this.title}">
-			</div>
-			<div class="book__info">
-				<h3 class="book__title">${this.title}</h3>
-				<p class="book__meta">${this.author}, ${this.year}</p>
-			</div>
+			${status}
 		</div>
 		`;
-		}
 	}
 }

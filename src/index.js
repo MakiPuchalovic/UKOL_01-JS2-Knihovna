@@ -24,14 +24,28 @@ knihovna.addBook( new Book('Alexandre Dumas', 'The Count of Monte Cristo', 1844,
 knihovna.addBook( new Book('Rudyard Kipling', 'The Jungle Book', 1894, 'the-jungle-book.jpg') );
 knihovna.addBook( new Book('H. G. Wells', 'The War of the Worlds', 1897, 'the-war-of-the-worlds.jpg') );
 
-/* začneme číst další knihu v pořadí */
-knihovna.startReadingNextBook();
-
-/* vypíšeme všechny knihy v knihovně */
 knihovna.listAllBooks();
 
-knihovna.finishCurrentBook();
+function startReadingNextBookAndList() {
+	/* začneme číst další knihu v pořadí */
+	knihovna.startReadingNextBook();
+	/* vypíšeme všechny knihy v knihovně */
+	knihovna.listAllBooks();
+}
 
-knihovna.listUnreadBooks();
+function finishCurrentBookAndList() {
+	/* dočteme právě čtenou knihu */
+	knihovna.finishCurrentBook();
+	/* vypíšeme všechny knihy v knihovně */
+	knihovna.listAllBooks();
+}
 
+let nextButton = document.querySelector("#next");
+nextButton.onclick = function () {
+	startReadingNextBookAndList();
+}
 
+let finishButton = document.querySelector("#finish");
+finishButton.onclick = function () {
+	finishCurrentBookAndList();
+}
